@@ -22,6 +22,7 @@ class _GoodsListPageState extends State<GoodsListPage> {
     }
 
     void getGoodsList() async {
+        //本机搭建的后端服务接口地址
         var url = 'http://192.168.3.100:8080/index/listGoods';
         var formData = {'shopId': '1'};
 
