@@ -4,6 +4,9 @@ import 'pages/text_demo.dart';
 import 'pages/icon_demo.dart';
 import 'pages/container.dart';
 import 'pages/button_demo.dart';
+import 'pages/listview_listtile_demo.dart';
+import 'pages/listview_horizontal_list_demo.dart';
+import 'pages/listview_builder_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,7 +40,8 @@ class HomePage extends StatelessWidget {
   final String title;
   HomePage({Key key, this.title});
   
-  final List subPageName = ['1. Container示例', '2. Image示例', '3. Text示例', '4. Icon示例', '5. Button示例'];
+  final List subPageName = ['1. Container示例', '2. Image示例', '3. Text示例', '4. Icon示例',
+                            '5. Button示例', '6. ListTile示例', '7. 水平列表示例', '8. 使用Builder构建ListView'];
   
   List<Widget> getSubPageListItems(BuildContext context) {
       List<Widget> items = List<Widget>();
@@ -49,27 +53,42 @@ class HomePage extends StatelessWidget {
                   switch (subPageName.indexOf(pageName)) {
                       case 0:
                           Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return ContainerPage(title: 'Container示例');
+                              return ContainerPage(title: pageName);
                           }));
                           break;
                       case 1:
                           Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return ImageDemo(title: 'Image示例');
+                              return ImageDemo(title: pageName);
                           }));
                           break;
                       case 2:
                           Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return TextDemo(title: 'Text示例');
+                              return TextDemo(title: pageName);
                           }));
                           break;
                       case 3:
                           Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return IconDemo(title: 'Icon示例');
+                              return IconDemo(title: pageName);
                           }));
                           break;
                       case 4:
                           Navigator.push(context, MaterialPageRoute(builder: (context) {
-                              return ButtonDemo(title: 'Button示例');
+                              return ButtonDemo(title: pageName);
+                          }));
+                          break;
+                      case 5:
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              return ListTileDemoPage(title: pageName);
+                          }));
+                          break;
+                      case 6:
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              return HorizontalListDemoPage(title: pageName);
+                          }));
+                          break;
+                      case 7:
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              return ListViewBuilderDemoPage(title: pageName);
                           }));
                           break;
                       default:
