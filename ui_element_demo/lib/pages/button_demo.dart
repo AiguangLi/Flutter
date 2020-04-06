@@ -47,6 +47,14 @@ class _ButtonDemoState extends State<ButtonDemo> {
 								),
 							),
 						),
+						FloatingActionButton(
+							child: Icon(Icons.computer),
+							onPressed: () {
+								updateButtonClicked('点击悬浮按钮');
+							},
+							hoverColor: Colors.lightGreen,
+							focusColor: Colors.greenAccent,
+						),
 						Text(
 							'$_buttonType',
 							style: TextStyle(

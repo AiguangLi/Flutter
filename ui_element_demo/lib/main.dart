@@ -7,6 +7,8 @@ import 'pages/button_demo.dart';
 import 'pages/listview_listtile_demo.dart';
 import 'pages/listview_horizontal_list_demo.dart';
 import 'pages/listview_builder_demo.dart';
+import 'pages/grid_view_demo.dart';
+import 'pages/form_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,7 +43,8 @@ class HomePage extends StatelessWidget {
   HomePage({Key key, this.title});
   
   final List subPageName = ['1. Container示例', '2. Image示例', '3. Text示例', '4. Icon示例',
-                            '5. Button示例', '6. ListTile示例', '7. 水平列表示例', '8. 使用Builder构建ListView'];
+                            '5. Button示例', '6. ListTile示例', '7. 水平列表示例', '8. 使用Builder构建ListView',
+                            '9. GridView示例', '10. Form示例'];
   
   List<Widget> getSubPageListItems(BuildContext context) {
       List<Widget> items = List<Widget>();
@@ -89,6 +92,16 @@ class HomePage extends StatelessWidget {
                       case 7:
                           Navigator.push(context, MaterialPageRoute(builder: (context) {
                               return ListViewBuilderDemoPage(title: pageName);
+                          }));
+                          break;
+                      case 8:
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              return GridViewDemoPage(title: pageName);
+                          }));
+                          break;
+                      case 9:
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              return FormDemoPage(title: pageName);
                           }));
                           break;
                       default:
