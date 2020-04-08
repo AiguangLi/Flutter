@@ -88,5 +88,15 @@ class _HomePageState extends State<HomePage> {
 		setState(() {
 			_selectedIndex = index;
 		});
+		switch(index) {
+			case 1:
+				Navigator.pushNamed(this.context, '/tabbar_items');
+				break;
+			case 2:
+				Navigator.pushNamed(this.context, '/tabbar');
+				break;
+			default:
+				break;
+		}
 	}
 }

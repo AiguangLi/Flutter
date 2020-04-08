@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'pages/home.dart';
 import 'pages/user.dart';
+import 'pages/default_tabbar.dart';
+import 'pages/tabbar_items.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(title: '首页'),
         '/user': (context) => UserPage(title: '个人中心'),
+        '/tabbar': (context) => DefaultTabBarDemo(title: 'Tabbar示例'),
+        '/tabbar_items': (context) => TabBarItemsDemo(title: 'TabbarItems示例'),
       },
     );
   }
