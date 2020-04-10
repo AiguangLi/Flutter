@@ -5,7 +5,8 @@ class PageList extends StatelessWidget {
 	PageList({Key key, this.title});
 	
 	final List<String> pageNames =['1. AppBar及底部导航框架', '2. 简单Tabbar',
-								   '3. 带图标的Tabbar', '4. 侧边栏抽屉'];
+								   '3. 带图标的Tabbar', '4. 侧边栏抽屉',
+								   '5. TextField示例', '6. Card示例'];
 	
 	@override
 	Widget build(BuildContext context) {
@@ -43,6 +44,12 @@ class PageList extends StatelessWidget {
 				break;
 			case 3:
 				Navigator.pushNamed(context, '/drawer');
+				break;
+			case 4:
+				Navigator.pushNamed(context, '/textfield');
+				break;
+			case 5:
+				Navigator.pushNamed(context, '/card');
 				break;
 			default:
 				break;

@@ -6,6 +6,8 @@ import 'pages/default_tabbar.dart';
 import 'pages/tabbar_items.dart';
 import 'pages/page_list.dart';
 import 'pages/drawer_demo.dart';
+import 'pages/textfield_demo.dart';
+import 'pages/card_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/tabbar': (context) => DefaultTabBarDemo(title: 'Tabbar示例'),
         '/tabbar_items': (context) => TabBarItemsDemo(title: 'TabbarItems示例'),
         '/drawer': (context) => DrawerDemo(title: 'Drawer示例'),
+        '/textfield': (context) => TextFieldDemo(title: 'TextField示例',),
+        '/card': (context) => CardDemo(title: 'Card示例',)
       },
     );
   }
