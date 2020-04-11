@@ -4,7 +4,7 @@ class PageList extends StatelessWidget {
 	final String title;
 	PageList({Key key, this.title});
 	
-	final List<String> pageNames =['1. ActivityIndicator', '2. AlertDialog'];
+	final List<String> pageNames =['1. ActivityIndicator', '2. AlertDialog', '3. CupertinoPage'];
 	
 	@override
 	Widget build(BuildContext context) {
@@ -36,6 +36,9 @@ class PageList extends StatelessWidget {
 				break;
 			case 1:
 				Navigator.pushNamed(context, '/alert_dialog');
+				break;
+			case 2:
+				Navigator.pushNamed(context, '/cupertino_page');
 				break;
 			default:
 				break;

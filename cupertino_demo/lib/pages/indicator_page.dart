@@ -32,7 +32,6 @@ class _IndicatorPageState extends State<IndicatorPage> {
 						)
 					],
 				)
-			
 			),
 		);
 	}

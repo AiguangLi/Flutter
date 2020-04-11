@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
-import 'cupertino_page_scaffold.dart';
+import 'package:flutter/cupertino.dart';
 
-class HomePage extends StatelessWidget {
+class MessagePage extends StatelessWidget {
 	final String title;
-	HomePage({Key key, this.title});
+	MessagePage({Key key, this.title});
 	
 	@override
-  	Widget build(BuildContext context) {
-    	// TODO: implement build
-    	return null;
-  	}
+	Widget build(BuildContext context) {
+		return CupertinoPageScaffold(
+			navigationBar: CupertinoNavigationBar(
+				middle: Text('消息'),
+				trailing: Icon(CupertinoIcons.add),
+				leading: Icon(CupertinoIcons.create),
+			),
+			child: Center (
+				child: Text('消息'),
+			),
+			
+		);
+	}
 }

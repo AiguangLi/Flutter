@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'pages/page_list.dart';
 import 'pages/indicator_page.dart';
 import 'pages/alert_dialog.dart';
+import 'pages/cupertino_page_scaffold.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => PageList(title: '首页'),
         '/indicator': (context) => IndicatorPage(title: 'Indicator指示器'),
         '/alert_dialog': (context) => AlertDialogPage(title: 'AlertDialog指示器'),
+        '/cupertino_page': (context) => TabPage(title: 'iOS风格页面框架')
       },
     );
   }
