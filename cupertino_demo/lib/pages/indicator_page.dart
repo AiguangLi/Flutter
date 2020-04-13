@@ -25,8 +25,8 @@ class _IndicatorPageState extends State<IndicatorPage> {
 							shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4.0))),
 							color: Colors.lightBlue,
 							onPressed: () {
-								animating = ! animating;
 								setState(() {
+									animating = ! animating;
 								});
 							},
 						)
