@@ -5,6 +5,9 @@ import 'pages/container_demo.dart';
 import 'pages/center_demo.dart';
 import 'pages/align_demo.dart';
 import 'pages/fitted_box_demo.dart';
+import 'pages/stack_alignment_demo.dart';
+import 'pages/box_demo.dart';
+import 'pages/ratio_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +33,9 @@ class MyApp extends StatelessWidget {
         '/center': (context) => CenterDemo(),
         '/align': (context) => AlignDemo(),
         '/fitted-box': (context) => FittedBoxDemo(),
+        '/stack': (context) => StackAlignmentDemo(),
+        '/box': (context) => BoxDemo(),
+        '/ratio': (context) => RatioDemo(),
       },
     );
   }

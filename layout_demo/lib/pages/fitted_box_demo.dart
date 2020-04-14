@@ -34,7 +34,7 @@ class _FittedBoxDemoState extends State<FittedBoxDemo> {
 				height: 200,
 				color: Colors.lightGreen,
 				child: FittedBox(
-					///包含内容即可
+					///包住内容即可
 					fit: BoxFit.contain,
 					alignment: Alignment.topLeft,
 					child: Container(
