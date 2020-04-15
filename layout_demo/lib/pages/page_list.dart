@@ -21,13 +21,10 @@ class _PageListState extends State<PageList> {
       '5. Stack': '/stack',
       '6. Box': '/box',
       '7. Ratio': '/ratio',
-      '15. FractionallySizedBox': '/container',
-      '16. ListView': '/container',
-      '17. GridView': '/container',
-      '18. Transform': '/container',
-      '19. Baseline': '/container',
-      '20. OffStage ': '/container',
-      '21. Wrap': '/container',
+      '8. ListView': '/list',
+      '9. GridView': '/gridview',
+      '10. Table': '/table',
+      '11. Other': '/other',
       '22. Composite Example': '/container'
     };
   }
