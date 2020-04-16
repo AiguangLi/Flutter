@@ -124,7 +124,7 @@ class CompisteDemo extends StatelessWidget {
       mainAxisSpacing: 10.0,
       crossAxisCount: 4,
       padding: const EdgeInsets.all(10.0),
-      shrinkWrap: true,
+      shrinkWrap: true, ///shrinkWrap和physics属性设置用于解决ListView嵌套GridView冲突，禁止GridView滚动
       physics: NeverScrollableScrollPhysics(),
       children: buttons.map((item) {
         return Container(
