@@ -16,7 +16,6 @@ class _BoxDemoState extends State<BoxDemo> {
     super.initState();
     demoIndex = 0;
     demoType = types[0];
-    ;
   }
 
   @override

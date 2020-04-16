@@ -12,6 +12,7 @@ import 'pages/list_long_text.dart';
 import 'pages/gridview_demo.dart';
 import 'pages/table_demo.dart';
 import 'pages/other_demo.dart';
+import 'pages/composite_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         '/gridview': (context) => GridViewDemo(),
         '/table': (context) => TableDemo(),
         '/other': (context) => OtherDemo(),
+        '/composite': (context) => CompisteDemo(),
       },
     );
   }

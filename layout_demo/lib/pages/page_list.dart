@@ -25,7 +25,7 @@ class _PageListState extends State<PageList> {
       '9. GridView': '/gridview',
       '10. Table': '/table',
       '11. Other': '/other',
-      '22. Composite Example': '/container'
+      '22. Composite Example': '/composite'
     };
   }
 
