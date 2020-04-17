@@ -12,12 +12,11 @@ class CompisteDemo extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Container(
-            width: 450,
-            height: 248,
+            width: 225,
+            height: 124,
             child: Image.asset(
               'images/villa.jpg',
               fit: BoxFit.cover,
-
               ///图片填充整个父组件
             ),
           ),
@@ -31,6 +30,8 @@ class CompisteDemo extends StatelessWidget {
             color: Colors.blueGrey,
             height: 1.0,
           ),
+          getBillFee(),
+          getDynamic(),
           Container(
             child: Text('''
             吃辣椒凤飞飞凤飞飞凤飞飞凤飞飞凤飞飞凤飞飞发发发凤飞飞凤飞飞发链接呜呜呜呜呜呜呜呜我问问
@@ -57,15 +58,15 @@ class CompisteDemo extends StatelessWidget {
                 Container(
                   ///通过container控制组间间的间距
                   child: Text(
-                    '风景区地址',
+                    'A Flutter Composite Demo',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black),
+                        fontWeight: FontWeight.bold, color: Colors.black, fontSize: 16.0),
                   ),
                   margin: EdgeInsets.fromLTRB(10.0, 10.0, 5.0, 5.0),
                 ),
                 Container(
                   child: Text(
-                    '湖北省十堰市丹江口市',
+                    'Make App Development More Simple.',
                     style: TextStyle(color: Colors.grey),
                   ),
                   margin: EdgeInsets.fromLTRB(10.0, 5.0, 5.0, 10.0),
@@ -77,7 +78,7 @@ class CompisteDemo extends StatelessWidget {
             Icons.star,
             color: Colors.orange,
           ),
-          margin: EdgeInsets.fromLTRB(5.0, 10.0, 10.0, 10.0),
+          margin: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
         ),
         Container(
           child: Text('66'),
@@ -124,7 +125,9 @@ class CompisteDemo extends StatelessWidget {
       mainAxisSpacing: 10.0,
       crossAxisCount: 4,
       padding: const EdgeInsets.all(10.0),
-      shrinkWrap: true, ///shrinkWrap和physics属性设置用于解决ListView嵌套GridView冲突，禁止GridView滚动
+
+      ///shrinkWrap和physics属性设置用于解决ListView嵌套GridView冲突，禁止GridView滚动
+      shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       children: buttons.map((item) {
         return Container(
@@ -143,4 +146,137 @@ class CompisteDemo extends StatelessWidget {
       }).toList(),
     );
   }
+
+  DecoratedBox getBillFee() {
+    return DecoratedBox(
+      child: Container(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: <Widget>[
+              Text(
+                '欠费总额',
+                style: TextStyle(color: Colors.white, fontSize: 14.0),
+              ),
+              Text('￥13861.5',
+                  style: TextStyle(color: Colors.white, fontSize: 16.0)),
+            ],
+          )),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(1.0, 1.0),
+              colors: <Color>[
+            Color(0xFFF3AB61),
+            Color(0xFFF09064),
+            Color(0xFFEC7C66),
+            Color(0xFFE9616A),
+          ])),
+    );
+  }
+
+  ListView getDynamic() {
+    List<DynamicEvent> dynamicEvents = [
+      DynamicEvent(
+          time: '2020-04-10 10:12',
+          title: '小区四害消杀通知',
+          type: '公告',
+          bgColor: Colors.lightGreen),
+      DynamicEvent(
+          time: '2020-04-10 12:12',
+          title: '你的报修有新的回复',
+          type: '报修',
+          bgColor: Colors.orange),
+      DynamicEvent(
+          time: '2020-04-10 13:12',
+          title: '你的报事有新的回复',
+          type: '报事',
+          bgColor: Colors.lightBlue),
+    ];
+
+    return ListView.builder(
+      ///嵌套时需要设置shrinkWrap和physics属性
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: dynamicEvents.length,
+      itemBuilder: (context, index) => dynamicListItem(dynamicEvents[index]),
+    );
+  }
+
+  ///动态事件列表单元组件
+  Widget dynamicListItem(DynamicEvent event) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color(0xFFF1F1F1),
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+              color: Color(0xFFCCCCCC),
+              blurRadius: 2.0,
+              spreadRadius: 1.0,
+              offset: Offset(1.0, 1.0)),
+        ],
+      ),
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: getDynamicContent(event),
+          ),
+          Icon(
+            Icons.arrow_forward_ios,
+            color: Color(0xFFBBBBBB),
+          ),
+        ],
+      ),
+    );
+  }
+
+  ///动态事件内容组件，包括类型标签，标题和时间
+  Widget getDynamicContent(DynamicEvent event) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Container(
+              child: Text(event.type,
+                  style: TextStyle(color: Colors.white, fontSize: 14.0)),
+              width: 40,
+              height: 24.0,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                color: event.bgColor,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                child: Text(
+                  event.title,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                padding: EdgeInsets.only(left: 5.0),
+              ),
+            ),
+          ],
+        ),
+        Container(
+          child: Text(
+            event.time,
+            style: TextStyle(color: Colors.grey, fontSize: 14.0),
+          ),
+          margin: EdgeInsets.only(left: 0.0, top: 8.0, bottom: 8.0),
+        ),
+      ],
+    );
+  }
+}
+
+class DynamicEvent {
+  final String type;
+  final String title;
+  final String time;
+  final Color bgColor;
+
+  DynamicEvent({this.title, this.type, this.time, this.bgColor});
 }
