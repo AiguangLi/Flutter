@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:layout_demo/components/app_bar_factory.dart';
+//import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:layout_demo/components/custom_swiper.dart';
 
 class CompisteDemo extends StatelessWidget {
   const CompisteDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<String> imagePaths = ['images/villa.jpg', 'images/building.jpg'];
     return Scaffold(
       appBar: AppBarFactory.buildCenterAppBar('Composite Demo'),
       body: ListView(
         children: <Widget>[
-          Container(
-            width: 225,
-            height: 124,
-            child: Image.asset(
-              'images/villa.jpg',
-              fit: BoxFit.cover,
-              ///图片填充整个父组件
-            ),
-          ),
+          ///Swiper需要指定高度，否则会与ListView冲突
+          CustomSwiper.imageSwiper(imagePaths, 124, 225, SwiperImageSource.local),
           addressRow(),
           Divider(
             color: Colors.blueGrey,
@@ -60,7 +56,9 @@ class CompisteDemo extends StatelessWidget {
                   child: Text(
                     'A Flutter Composite Demo',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black, fontSize: 16.0),
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 16.0),
                   ),
                   margin: EdgeInsets.fromLTRB(10.0, 10.0, 5.0, 5.0),
                 ),
