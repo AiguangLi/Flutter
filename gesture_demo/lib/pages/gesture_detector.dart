@@ -8,6 +8,7 @@ class GestureDetectorDemo extends StatefulWidget {
 
 class _GestureDetectorDemoState extends State<GestureDetectorDemo> {
   String tapName;
+
   ///使用GlobalKey存储ScaffoldState，以便在BuildContext外使用Scaffold
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -49,18 +50,17 @@ class _GestureDetectorDemoState extends State<GestureDetectorDemo> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
-                Expanded(
-                  child: Text(tapName)
-                ),
+                Expanded(child: Text(tapName)),
               ],
             ),
           ),
-        )
+        ),
       );
   }
 
   void handleGesture(String gestureType) {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(gestureType)));
+    _scaffoldKey.currentState
+        .showSnackBar(SnackBar(content: Text(gestureType)));
     setState(() {
       tapName = gestureType;
     });

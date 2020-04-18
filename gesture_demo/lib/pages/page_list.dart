@@ -16,7 +16,8 @@ class _PageListState extends State<PageList> {
 
     pageNames = {
       '1. GestureDector': '/gesture_detector',
-      '2. Dismissable': '/dismissable',
+      '2. Dismissible': '/dismissible',
+      '3. SnackBar': '/snackbar_demo',
     };
   }
 

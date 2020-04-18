@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'pages/page_list.dart';
 import 'pages/gesture_detector.dart';
+import 'pages/scaffold_snackbar_demo.dart';
+import 'pages/dismissible_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => PageList(),
         '/gesture_detector': (context) => GestureDetectorDemo(),
-        '/center': (context) => PageList(),
+        '/snackbar_demo': (context) => ScaffoldSnackBarDemo(),
+        '/dismissible': (context) => DismissibleDemo(),
       },
     );
   }
