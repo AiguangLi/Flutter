@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'pages/page_list.dart';
 import 'pages/opacity_demo.dart';
+import 'pages/background_image_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => PageList(),
         '/opacity': (context) => OpacityDemo(),
+        '/bg_image': (context) => BackgourndImageDemo(),
       },
     );
   }
