@@ -15,7 +15,9 @@ class _PageListState extends State<PageList> {
 
     pageNames = {
       '1. Opacity': '/opacity',
-      '2. Decoration Demo': '/decoration'
+      '2. Decoration Demo': '/decoration',
+      '3. Rotated Box': '/rotated',
+      '4. Clip': '/clip',
     };
   }
 

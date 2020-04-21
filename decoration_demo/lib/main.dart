@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'pages/page_list.dart';
 import 'pages/opacity_demo.dart';
 import 'pages/decoration_demo.dart';
+import 'pages/rotated_box_demo.dart';
+import 'pages/clip_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => PageList(),
         '/opacity': (context) => OpacityDemo(),
         '/decoration': (context) => DecorationDemo(),
+        '/rotated': (context) => RotatedBoxDemo(),
+        '/clip': (context) => ClipDemo(),
       },
     );
   }
