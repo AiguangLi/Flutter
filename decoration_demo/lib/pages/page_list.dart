@@ -18,6 +18,9 @@ class _PageListState extends State<PageList> {
       '2. Decoration Demo': '/decoration',
       '3. Rotated Box': '/rotated',
       '4. Clip': '/clip',
+      '5. Painter': '/painter',
+      '6. Points Painter': '/points',
+      '7. Path Painter': '/path',
     };
   }
 

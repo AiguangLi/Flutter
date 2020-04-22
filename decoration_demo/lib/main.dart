@@ -1,3 +1,4 @@
+import 'package:decoration_demo/pages/draw_points_demo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'pages/page_list.dart';
@@ -5,6 +6,8 @@ import 'pages/opacity_demo.dart';
 import 'pages/decoration_demo.dart';
 import 'pages/rotated_box_demo.dart';
 import 'pages/clip_demo.dart';
+import 'pages/painter_demo.dart';
+import 'pages/draw_path_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,6 +32,9 @@ class MyApp extends StatelessWidget {
         '/decoration': (context) => DecorationDemo(),
         '/rotated': (context) => RotatedBoxDemo(),
         '/clip': (context) => ClipDemo(),
+        '/painter': (context) => PainterDemo(),
+        '/points': (context) => DrawPointsDemo(),
+        '/path': (context) => DrawPathDemo(),
       },
     );
   }
