@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'routers/application.dart';
+import 'routers/route_manager.dart';
 import 'dart:io';
 
 void main() => runApp(MyApp());
@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent)
       );
     }
-    Application.initRouters();
+    RouteManager.initRouters();
     return MaterialApp(
       title: 'Storage',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      onGenerateRoute: Application.router.generator,
+      onGenerateRoute: RouteManager.router.generator,
     );
   }
 }

@@ -6,6 +6,7 @@ import '../common/not_found.dart';
 class Routes {
   static String root = '/';
   static String sharedStoragePage = '/sharedStorage';
+  static String fileStoragePage = '/fileStorage';
 
   //配置路由对象
   static void configureRoutes(Router router) {
@@ -17,6 +18,7 @@ class Routes {
     );
 
     router.define(sharedStoragePage, handler: sharedStorageHandler);
+    router.define(fileStoragePage, handler: fileStorageHandler);
     router.define(root, handler: rootHandler);
   }
 }

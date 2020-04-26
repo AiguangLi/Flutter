@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../components/app_bar_factory.dart';
-import '../routers/application.dart';
+import '../routers/route_manager.dart';
 
 class RouteDemo extends StatefulWidget {
   RouteDemo({Key key}) : super(key: key);
@@ -14,6 +14,7 @@ class _RouteDemoState extends State<RouteDemo> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   List<String> routeList = [
     'shareStorage',
+    'fileStorage',
     'NotFound',
   ];
 
@@ -39,11 +40,15 @@ class _RouteDemoState extends State<RouteDemo> {
   void handleRouteType(BuildContext context, String routerType) {
     switch (routerType) {
       case 'shareStorage':
-        Application.router.navigateTo(context, '/sharedStorage',
+        RouteManager.router.navigateTo(context, '/sharedStorage',
             transition: TransitionType.inFromBottom);
         break;
+      case 'fileStorage':
+        RouteManager.router.navigateTo(context, '/fileStorage',
+            transition: TransitionType.inFromLeft);
+        break;
       case 'NotFound':
-        Application.router.navigateTo(context, '/errorRoute?id=none',
+        RouteManager.router.navigateTo(context, '/errorRoute?id=none',
             transition: TransitionType.nativeModal);
         break;
       default:
