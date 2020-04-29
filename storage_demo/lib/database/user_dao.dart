@@ -3,6 +3,18 @@ import '../models/user.dart';
 import 'package:sqflite/sqflite.dart';
 
 class UserDao extends DatabaseProvider {
+
+  UserDao._();
+
+  static UserDao _instance;
+  static UserDao sharedInstance() {
+    if (_instance == null) {
+      _instance = UserDao._();
+    }
+
+    return _instance;
+  }
+
   @override
   createTableSql() {
     return "CREATE TABLE t_user ("
@@ -43,12 +55,14 @@ class UserDao extends DatabaseProvider {
 
     Database database = await getDatabase();
 
-    var raw = await database.rawInsert(
-        "INSERT INTO ${tableName()} (id, nickname, mobile, avatar) "
-        "VALUES (?, ?, ?, ?)",
-        [user.id, user.nickname, user.mobile, user.avatar]);
+    int inserted = await database.insert(tableName(), user.toJson());
 
-    if (raw != null) {
+    // var raw = await database.rawInsert(
+    //     "INSERT INTO ${tableName()} (id, nickname, mobile, avatar) "
+    //     "VALUES (?, ?, ?, ?)",
+    //     [user.id, user.nickname, user.mobile, user.avatar]);
+
+    if (inserted > 0) {
       return user.id;
     } else {
       return 0;
@@ -61,7 +75,7 @@ class UserDao extends DatabaseProvider {
  */
   Future<int> deleteByUserId(int userId) async {
     User oldUser = await findByUserId(userId);
-    if (oldUser != null) {
+    if (oldUser == null) {
       // 'User  not found in ${tableName()}';
       return 0;
     }
@@ -75,7 +89,7 @@ class UserDao extends DatabaseProvider {
 
   Future<int> updateUser(User user) async {
     User oldUser = await findByUserId(user.id);
-    if (oldUser != null) {
+    if (oldUser == null) {
       // 'User not found in ${tableName()}';
       return 0;
     }

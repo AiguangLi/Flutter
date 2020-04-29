@@ -1,6 +1,4 @@
 import 'dart:io';
-import 'dart:async';
-import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 /*
@@ -33,7 +31,7 @@ class DatabaseManager {
  */
   static isTableExist(String tableName) async {
     await getDatabase();
-    String sql = "SELECT * FROM sqlite_master WHERE type = 'table' AND name = $tableName";
+    String sql = "SELECT * FROM sqlite_master WHERE type = 'table' AND name = '$tableName'";
     var res = await _database.rawQuery(sql);
 
     return res != null && res.length > 0;
@@ -47,8 +45,8 @@ class DatabaseManager {
     return _database;
   }
 
-  static close() async {
-    _database?.close();
+  static close() async{
+    await _database?.close();
     _database = null;
   }
 }

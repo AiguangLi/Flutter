@@ -4,6 +4,8 @@ class User {
   String mobile;
   String avatar;
 
+  User({this.id, this.nickname, this.mobile, this.avatar});
+
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     nickname = json['nickname'];
@@ -17,5 +19,7 @@ class User {
     result['nickname'] = nickname;
     result['mobile'] = mobile;
     result['avatar'] = avatar;
+
+    return result;
   }
 }

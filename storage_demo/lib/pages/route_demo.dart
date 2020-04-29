@@ -15,6 +15,7 @@ class _RouteDemoState extends State<RouteDemo> {
   List<String> routeList = [
     'shareStorage',
     'fileStorage',
+    'sqlite',
     'NotFound',
   ];
 
@@ -45,6 +46,10 @@ class _RouteDemoState extends State<RouteDemo> {
         break;
       case 'fileStorage':
         RouteManager.router.navigateTo(context, '/fileStorage',
+            transition: TransitionType.inFromLeft);
+        break;
+      case 'sqlite':
+        RouteManager.router.navigateTo(context, '/sqlite',
             transition: TransitionType.inFromLeft);
         break;
       case 'NotFound':
