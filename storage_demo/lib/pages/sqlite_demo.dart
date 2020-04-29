@@ -54,7 +54,7 @@ class _SqliteDemoState extends State<SqliteDemo> {
               }, nicknameController, 'images/password.png', false, nickname),
               Row(children: <Widget>[
                 Expanded(
-                    child: getTextButton('存储', Colors.lightBlue, () {
+                  child: getTextButton('存储', Colors.lightBlue, () {
                   saveInfo();
                 })),
                 getTextButton('更新', Colors.lightBlue, () {
