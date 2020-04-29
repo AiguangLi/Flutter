@@ -18,3 +18,11 @@
 6. cupterino_demo：iOS风格的UI组件示例
 
 7. layout_demo：布局示例代码，含有多种示例，最终实现了一个App首页的复杂布局。
+
+8. gesture_mode：手势识别演示，在Widget上增加手势识别。
+
+9. decoration_demo：各类装饰演示，包括渐变，透明度，背景图，边框，阴影，旋转，裁剪，画笔等。
+
+10. route_demo：使用fluro路由组件实现路由管理。
+
+11. storage_demo：shared_preferences，file和sqflite数据库存储演示。
