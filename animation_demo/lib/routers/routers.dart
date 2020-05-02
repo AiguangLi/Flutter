@@ -8,6 +8,7 @@ class Routes implements IRouter{
   static String root = '/';
 
   static String fontAnimation = '/fontAnimation';
+  static String curveAnimation = '/curveAnimation';
 
   Routes._();
 
@@ -32,5 +33,6 @@ class Routes implements IRouter{
 
     router.define(root, handler: rootHandler);
     router.define(fontAnimation, handler: fontAnimationHandler);
+    router.define(curveAnimation, handler: curveAnimationHandler);
   }
 }

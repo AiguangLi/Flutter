@@ -11,15 +11,15 @@ class FontAnimation extends StatefulWidget {
 class _FontAnimationState extends State<FontAnimation>
     with SingleTickerProviderStateMixin {
   Animation<double> tween;
-  AnimationController animationController;
+  AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
+    _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 2000));
 
-    tween = Tween(begin: 0.0, end: 1.0).animate(animationController)
+    tween = Tween(begin: 0.0, end: 1.0).animate(_animationController)
       ..addListener(() {
         setState(() {
           print('Animation value: ${tween.value}');
@@ -44,7 +44,7 @@ class _FontAnimationState extends State<FontAnimation>
             width: 400,
             height: 400,
             child: Text('字体放大',
-                style: TextStyle(fontSize: 40 * animationController.value)),
+                style: TextStyle(fontSize: 40 * _animationController.value)),
           ),
         ),
       ),
@@ -53,20 +53,20 @@ class _FontAnimationState extends State<FontAnimation>
 
   _startAnimation() {
     setState(() {
-      animationController.forward(from: 0.0);
+      _animationController.forward(from: 0.0);
     });
   }
 
   _reverseAnimation() {
     setState(() {
-      animationController.reverse(from: 1.0);
+      _animationController.reverse(from: 1.0);
     });
   }
 
   @override
   void dispose() {
     //必须销毁动画controller
-    animationController.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 }

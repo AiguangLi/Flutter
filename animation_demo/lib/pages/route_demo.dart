@@ -14,6 +14,7 @@ class _RouteDemoState extends State<RouteDemo> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   List<String> routeList = [
     'FontAnimation',
+    'CurveAnimation',
     'NotFound',
   ];
 
@@ -40,6 +41,10 @@ class _RouteDemoState extends State<RouteDemo> {
     switch (routerType) {
       case 'FontAnimation':
         RouteManager.router.navigateTo(context, '/fontAnimation',
+            transition: TransitionType.inFromBottom);
+        break;
+      case 'CurveAnimation':
+        RouteManager.router.navigateTo(context, '/curveAnimation',
             transition: TransitionType.inFromBottom);
         break;
       case 'NotFound':
