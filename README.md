@@ -26,3 +26,7 @@
 10. route_demo：使用fluro路由组件实现路由管理。
 
 11. storage_demo：shared_preferences，file和sqflite数据库存储演示。
+
+12. plugins：本地package，将共享代码放在plugins中，方便重复利用。
+
+13. animation_demo：动画示例。
