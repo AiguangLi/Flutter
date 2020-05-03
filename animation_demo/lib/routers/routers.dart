@@ -11,6 +11,7 @@ class Routes implements IRouter{
   static String curveAnimation = '/curveAnimation';
   static String maskAnimation = '/maskAnimation';
   static String numberAnimation = '/numberAnimation';
+   static String containerAnimation = '/animationContainer';
 
   Routes._();
 
@@ -38,5 +39,6 @@ class Routes implements IRouter{
     router.define(curveAnimation, handler: curveAnimationHandler);
     router.define(maskAnimation, handler: maskAnimationHandler);
     router.define(numberAnimation, handler: numberAnimationHandler);
+    router.define(containerAnimation, handler: containerAnimationHandler);
   }
 }
