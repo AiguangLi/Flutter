@@ -16,6 +16,7 @@ class _RouteDemoState extends State<RouteDemo> {
     'FontAnimation',
     'CurveAnimation',
     'MaskAnimation',
+    'NumberAnimation',
     'NotFound',
   ];
 
@@ -50,6 +51,10 @@ class _RouteDemoState extends State<RouteDemo> {
         break;
       case 'MaskAnimation':
         RouteManager.router.navigateTo(context, '/maskAnimation',
+            transition: TransitionType.inFromBottom);
+        break;
+      case 'NumberAnimation':
+        RouteManager.router.navigateTo(context, '/numberAnimation',
             transition: TransitionType.inFromBottom);
         break;
       case 'NotFound':

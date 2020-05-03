@@ -4,6 +4,7 @@ import '../pages/route_demo.dart';
 import '../pages/font_animation.dart';
 import '../pages/curve_animation.dart';
 import '../pages/mask_animation.dart';
+import '../pages/number_animation.dart';
 
 Handler rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -23,4 +24,9 @@ Handler curveAnimationHandler = Handler(
 Handler maskAnimationHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return MaskAnimation();
+});
+
+Handler numberAnimationHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return NumberAnimation();
 });
