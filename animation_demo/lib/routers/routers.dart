@@ -13,6 +13,8 @@ class Routes implements IRouter{
   static String numberAnimation = '/numberAnimation';
   static String containerAnimation = '/animationContainer';
   static String opacityAnimation = '/animationOpacity';
+  static String heroPageOne = '/heroPageOne';
+
 
   Routes._();
 
@@ -42,5 +44,7 @@ class Routes implements IRouter{
     router.define(numberAnimation, handler: numberAnimationHandler);
     router.define(containerAnimation, handler: containerAnimationHandler);
     router.define(opacityAnimation, handler: opacityAnimationHandler);
+    router.define(heroPageOne, handler: heroPageOneHandler);
+
   }
 }

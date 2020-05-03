@@ -19,6 +19,7 @@ class _RouteDemoState extends State<RouteDemo> {
     'NumberAnimation',
     'AnimationContainer',
     'AnimationOpacity',
+    'Hero',
     'NotFound',
   ];
 
@@ -65,6 +66,10 @@ class _RouteDemoState extends State<RouteDemo> {
         break;
       case 'AnimationOpacity':
         RouteManager.router.navigateTo(context, '/animationOpacity',
+            transition: TransitionType.inFromBottom);
+        break;
+      case 'Hero':
+        RouteManager.router.navigateTo(context, '/heroPageOne',
             transition: TransitionType.inFromBottom);
         break;
       case 'NotFound':

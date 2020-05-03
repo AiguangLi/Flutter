@@ -7,6 +7,8 @@ import '../pages/mask_animation.dart';
 import '../pages/number_animation.dart';
 import '../pages/animation_container_demo.dart';
 import '../pages/animation_opacity_demo.dart';
+import '../pages/hero_page_one.dart';
+
 
 Handler rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -41,4 +43,10 @@ Handler containerAnimationHandler = Handler(
 Handler opacityAnimationHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return AnimationOpacityDemo();
+});
+
+
+Handler heroPageOneHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return HeroPageOne();
 });
