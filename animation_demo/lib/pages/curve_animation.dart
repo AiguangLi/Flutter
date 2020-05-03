@@ -47,19 +47,24 @@ class _CurveAnimationState extends State<CurveAnimation>
     return Scaffold(
       appBar: AppBarFactory.buildCenterAppBar('Curve Animation'),
       body: AnimatedBuilder(
-          animation: _animationController,
-          builder: (context, child) {
-            return Transform(
-              transform: Matrix4.translationValues(
-                  _animation.value * screenWidth, 0.0, 0.0),
-              child: Center(
-                  child: Container(
-                    color: Colors.lightBlue, 
-                    width: 200, 
-                    height: 200)
+        animation: _animationController,
+        //builder传递一个构建Widget的build方法，实际会在AnimateBuilder的build方法调用
+        //build方法每当animation的值改变时就会调用
+        builder: (context, child) {
+          return Transform(
+            transform: Matrix4.translationValues(
+                _animation.value * screenWidth, 0.0, 0.0),
+            child: Center(
+              child: ClipOval(
+                child: Container(
+                    color: Colors.lightGreen, width: 200, height: 200
                   ),
-            );
-          }),
+              ),
+            ),
+          );
+        },
+        child: Text('Animation Text'),
+      ),
     );
   }
 

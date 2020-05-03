@@ -19,6 +19,7 @@ class _FontAnimationState extends State<FontAnimation>
     _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 2000));
 
+    //在Listener里更新状态促发Widget变更
     tween = Tween(begin: 0.0, end: 1.0).animate(_animationController)
       ..addListener(() {
         setState(() {

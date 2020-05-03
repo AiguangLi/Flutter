@@ -15,6 +15,7 @@ class _RouteDemoState extends State<RouteDemo> {
   List<String> routeList = [
     'FontAnimation',
     'CurveAnimation',
+    'MaskAnimation',
     'NotFound',
   ];
 
@@ -45,6 +46,10 @@ class _RouteDemoState extends State<RouteDemo> {
         break;
       case 'CurveAnimation':
         RouteManager.router.navigateTo(context, '/curveAnimation',
+            transition: TransitionType.inFromBottom);
+        break;
+      case 'MaskAnimation':
+        RouteManager.router.navigateTo(context, '/maskAnimation',
             transition: TransitionType.inFromBottom);
         break;
       case 'NotFound':
