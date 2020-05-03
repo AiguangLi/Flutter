@@ -6,6 +6,7 @@ import '../pages/curve_animation.dart';
 import '../pages/mask_animation.dart';
 import '../pages/number_animation.dart';
 import '../pages/animation_container_demo.dart';
+import '../pages/animation_opacity_demo.dart';
 
 Handler rootHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -35,4 +36,9 @@ Handler numberAnimationHandler = Handler(
 Handler containerAnimationHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return AnimationContainerDemo();
+});
+
+Handler opacityAnimationHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return AnimationOpacityDemo();
 });
