@@ -8,7 +8,7 @@ class AppBarFactory {
 		return AppBar(title: Text(title));
 	}
 	
-	static AppBar buildCenterAppBar(String title) {
-		return AppBar(title: Text(title), centerTitle: true);
+	static AppBar buildCenterAppBar(String title, {List<Widget> withActions, Widget leading}) {
+		return AppBar(title: Text(title), centerTitle: true, actions: withActions, leading: leading,);
 	}
 }
