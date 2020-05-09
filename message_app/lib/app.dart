@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:message_app/message/message_list.dart';
 import 'package:plugins/components/app_bar_factory.dart';
 import 'package:plugins/plugins.dart';
 
@@ -13,7 +14,14 @@ class _AppHomePageState extends State<AppHomePage> {
   int _currentIndex = 0;
 
   Widget _currentPage() {
-    return Text(_currentIndex.toString());
+    switch (_currentIndex) {
+      case 0:
+        return MessageList();
+        break;
+      default:
+        return Text(_currentIndex.toString());
+        break;
+    }
   }
 
   @override
