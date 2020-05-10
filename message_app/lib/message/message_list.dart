@@ -7,15 +7,27 @@ import 'package:message_app/models/list_pager.dart';
 import 'package:message_app/models/list_vo.dart';
 
 class MessageList extends StatefulWidget {
-  MessageList({Key key}) : super(key: key);
+  MessageList._({Key key}) : super(key: key);
+
+  static MessageList _instance;
+
+  static MessageList getSharedInstance() {
+    if (_instance == null) {
+      _instance = MessageList._();
+    }
+
+    return _instance;
+  }
 
   @override
   _MessageListState createState() => _MessageListState();
 }
 
+//ToDo：数据要通过状态管理器管理，否则每次都会创建，导致每次都会刷新
 class _MessageListState extends State<MessageList> {
   List<MessageModel> messageData;
   ListPager pager;
+  bool _isLoaded = false;
 
   EasyRefreshController _controller = EasyRefreshController();
   String _indicatorText;
@@ -30,7 +42,7 @@ class _MessageListState extends State<MessageList> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: EasyRefresh(
-        firstRefresh: true,
+        firstRefresh: !_isLoaded,
         //emptyWidget: Center(child:Text(_indicatorText)),
         controller: _controller,
         onRefresh: () async {
@@ -45,7 +57,8 @@ class _MessageListState extends State<MessageList> {
               _controller.finishLoad(noMore: true);
             }
 
-             setState(() {
+            _isLoaded = true;
+            setState(() {
               if (pager.total == 0) {
                 _indicatorText = 'No Data Available';
               }
@@ -54,8 +67,9 @@ class _MessageListState extends State<MessageList> {
         },
         onLoad: () async {
           if (pager.nextPage > pager.currentPage) {
-            ListVO<MessageModel> newData = await MessageServiceImpl.getSharedInstance()
-                .listMessage(pager.nextPage, pager.paegSize);
+            ListVO<MessageModel> newData =
+                await MessageServiceImpl.getSharedInstance()
+                    .listMessage(pager.nextPage, pager.paegSize);
             messageData.addAll(newData?.listItems);
             pager = newData.pager;
 

@@ -16,6 +16,6 @@ class ContactorModel {
     _avatarUrl = json['avatar'] ?? '';
     _mobile = json['mobile'] ?? '';
     //没有首字母的使用#替代
-    _firstChar = json['_firstChar'] ?? '#';
+    _firstChar = json['firstChar'] ?? '#';
   }
 }

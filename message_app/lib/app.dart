@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:message_app/contact/contactor_list.dart';
 import 'package:message_app/message/message_list.dart';
 import 'package:plugins/components/app_bar_factory.dart';
 import 'package:plugins/plugins.dart';
@@ -16,7 +17,10 @@ class _AppHomePageState extends State<AppHomePage> {
   Widget _currentPage() {
     switch (_currentIndex) {
       case 0:
-        return MessageList();
+        return MessageList.getSharedInstance();
+        break;
+      case 1:
+        return ContactorList.getSharedInstance();
         break;
       default:
         return Text(_currentIndex.toString());

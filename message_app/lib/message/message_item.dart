@@ -3,7 +3,7 @@ import 'package:message_app/message/message_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class MessageItem extends StatelessWidget {
-  MessageModel message;
+  final MessageModel message;
   MessageItem({Key key, this.message}) : super(key: key);
 
   @override
