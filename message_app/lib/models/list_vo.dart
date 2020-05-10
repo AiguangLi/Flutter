@@ -9,9 +9,9 @@ class ListVO<T> {
   ListVO(ModelMakeService modelMake, Map<String, dynamic> response) {
     pager = ListPager(response['pageNum'] ?? 1, response['pages'] ?? 0,
         response['total'] ?? 0, response['pageSize'] ?? 20);
-        
+
     _listItems = List<T>();
-    if (response.containsKey('list')) {
+    if (response.containsKey('list') && response['list'] is List<Map<String, dynamic>>) {
       List<Map<String, dynamic>> list =
           response['list'] as List<Map<String, dynamic>>;
       for (var item in list) {

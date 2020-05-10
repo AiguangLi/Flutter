@@ -18,16 +18,20 @@ class _MessageListState extends State<MessageList> {
   ListPager pager;
 
   EasyRefreshController _controller = EasyRefreshController();
+  String _indicatorText;
 
   @override
   void initState() {
     super.initState();
+    _indicatorText = 'Loading...';
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: EasyRefresh(
+        firstRefresh: true,
+        //emptyWidget: Center(child:Text(_indicatorText)),
         controller: _controller,
         onRefresh: () async {
           ListVO<MessageModel> newData =
@@ -35,12 +39,17 @@ class _MessageListState extends State<MessageList> {
           messageData = newData?.listItems;
           pager = newData?.pager;
           await Future.delayed(Duration(seconds: 2), () {
-            setState(() {});
             _controller.resetLoadState();
 
             if (pager == null || pager?.nextPage == pager?.currentPage) {
               _controller.finishLoad(noMore: true);
             }
+
+             setState(() {
+              if (pager.total == 0) {
+                _indicatorText = 'No Data Available';
+              }
+            });
           });
         },
         onLoad: () async {
@@ -53,7 +62,7 @@ class _MessageListState extends State<MessageList> {
             await Future.delayed(Duration(seconds: 2), () {
               setState(() {});
               _controller.finishLoad(
-                  noMore: pager.toalPage == pager.currentPage);
+                  noMore: pager.totalPage == pager.currentPage);
             });
           }
         },
@@ -64,7 +73,7 @@ class _MessageListState extends State<MessageList> {
                   return MessageItem(message: messageData[index]);
                 })
             : Center(
-                child: Text('No Data Available!'),
+                child: Text(_indicatorText),
               ),
       ),
     );

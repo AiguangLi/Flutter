@@ -55,7 +55,7 @@ class MessageServiceImpl implements MessageService {
       'pageNum': currentPage,
       'pageSize': pageSize,
       'pages': 2,
-      'total': pageSize * 2,
+      'total': 2 * pageSize,
       'list': list
     });
   }

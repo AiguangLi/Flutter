@@ -6,8 +6,8 @@ class ListPager {
   int _pageSize;
 
   int get currentPage => _currentPage;
-  int get toalPage => _totalPage;
-  int get toal => _total;
+  int get totalPage => _totalPage;
+  int get total => _total;
   int get nextPage => _nextPage;
   int get paegSize => _pageSize;
 
