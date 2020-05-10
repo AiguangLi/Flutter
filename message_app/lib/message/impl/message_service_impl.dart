@@ -1,5 +1,5 @@
-import 'package:message_app/message/message_model.dart';
-import 'package:message_app/models/list_vo.dart';
+import '../message_model.dart';
+import '../../models/list_vo.dart';
 import '../service/message_service.dart';
 import 'package:date_format/date_format.dart';
 import '../impl/message_make_impl.dart';
@@ -17,8 +17,6 @@ class MessageServiceImpl implements MessageService {
     return _instance;
   }
 
-
-  //ToDo 修改为单例模式
   @override
   Future<String> deleteMessage(String messageId) async {
     return messageId;
