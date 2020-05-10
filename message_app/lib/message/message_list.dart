@@ -31,7 +31,7 @@ class _MessageListState extends State<MessageList> {
         controller: _controller,
         onRefresh: () async {
           ListVO<MessageModel> newData =
-              await MessageServiceImpl().listMessage(1, 20);
+              await MessageServiceImpl.getSharedInstance().listMessage(1, 20);
           messageData = newData?.listItems;
           pager = newData?.pager;
           await Future.delayed(Duration(seconds: 2), () {
@@ -45,7 +45,7 @@ class _MessageListState extends State<MessageList> {
         },
         onLoad: () async {
           if (pager.nextPage > pager.currentPage) {
-            ListVO<MessageModel> newData = await MessageServiceImpl()
+            ListVO<MessageModel> newData = await MessageServiceImpl.getSharedInstance()
                 .listMessage(pager.nextPage, pager.paegSize);
             messageData.addAll(newData?.listItems);
             pager = newData.pager;

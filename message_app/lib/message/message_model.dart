@@ -1,6 +1,4 @@
-import '../models/base_model.dart';
-
-class MessageModel extends BaseModel {
+class MessageModel {
   String _nickname;
   String get  nickname => _nickname;
 
@@ -13,7 +11,7 @@ class MessageModel extends BaseModel {
   String _messageTime;
   String get messageTime => _messageTime;
 
-  MessageModel(Map<String, dynamic> json) : super(json) {
+  MessageModel(Map<String, dynamic> json) {
     _nickname = json['nickname'] ?? '-';
     _recentMessage = json['recentMessage'] ?? '无消息';
     _avatarUrl = json["avatar"] ?? '';
