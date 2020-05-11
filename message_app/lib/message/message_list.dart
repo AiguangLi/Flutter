@@ -1,34 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:message_app/message/impl/message_service_impl.dart';
 import 'package:message_app/message/message_item.dart';
-import 'package:message_app/message/message_model.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:message_app/models/list_pager.dart';
-import 'package:message_app/models/list_vo.dart';
+import 'package:message_app/message/view_model/message_store.dart';
+import 'package:provider/provider.dart';
 
-class MessageList extends StatefulWidget {
-  MessageList._({Key key}) : super(key: key);
+class MessageListPage extends StatelessWidget {
+  const MessageListPage({Key key}) : super(key: key);
 
-  static MessageList _instance;
-
-  static MessageList getSharedInstance() {
-    if (_instance == null) {
-      _instance = MessageList._();
-    }
-
-    return _instance;
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => MessageStore(context),
+      lazy: false,
+      child: _MessageList(),
+    );
   }
+}
+
+class _MessageList extends StatefulWidget {
+  _MessageList({Key key}) : super(key: key);
 
   @override
   _MessageListState createState() => _MessageListState();
 }
 
-//ToDo：数据要通过状态管理器管理，否则每次都会创建，导致每次都会刷新
-class _MessageListState extends State<MessageList> {
-  List<MessageModel> messageData;
-  ListPager pager;
-  bool _isLoaded = false;
-
+//ToDo：解决每次切换的刷新问题
+class _MessageListState extends State<_MessageList> {
   EasyRefreshController _controller = EasyRefreshController();
   String _indicatorText;
 
@@ -40,51 +37,28 @@ class _MessageListState extends State<MessageList> {
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<MessageStore>(context);
     return Scaffold(
       body: EasyRefresh(
-        firstRefresh: !_isLoaded,
-        //emptyWidget: Center(child:Text(_indicatorText)),
+        firstRefresh: !store.isLoaded,
         controller: _controller,
         onRefresh: () async {
-          ListVO<MessageModel> newData =
-              await MessageServiceImpl.getSharedInstance().listMessage(1, 20);
-          messageData = newData?.listItems;
-          pager = newData?.pager;
-          await Future.delayed(Duration(seconds: 2), () {
-            _controller.resetLoadState();
-
-            if (pager == null || pager?.nextPage == pager?.currentPage) {
-              _controller.finishLoad(noMore: true);
-            }
-
-            _isLoaded = true;
-            setState(() {
-              if (pager.total == 0) {
-                _indicatorText = 'No Data Available';
-              }
-            });
-          });
+          await store.getListItems(1, 20);
+          _controller.finishLoad(noMore: !store.hasMoreData);
         },
         onLoad: () async {
-          if (pager.nextPage > pager.currentPage) {
-            ListVO<MessageModel> newData =
-                await MessageServiceImpl.getSharedInstance()
-                    .listMessage(pager.nextPage, pager.paegSize);
-            messageData.addAll(newData?.listItems);
-            pager = newData.pager;
+          if (store.hasMoreData) {
+            await store.getListItems(
+                store.pager.nextPage, store.pager.paegSize);
 
-            await Future.delayed(Duration(seconds: 2), () {
-              setState(() {});
-              _controller.finishLoad(
-                  noMore: pager.totalPage == pager.currentPage);
-            });
+            _controller.finishLoad(noMore: !store.hasMoreData);
           }
         },
-        child: messageData != null
+        child: store.messageData != null
             ? ListView.builder(
-                itemCount: messageData.length,
+                itemCount: store.messageData.length,
                 itemBuilder: (context, index) {
-                  return MessageItem(message: messageData[index]);
+                  return MessageItem(message: store.messageData[index]);
                 })
             : Center(
                 child: Text(_indicatorText),

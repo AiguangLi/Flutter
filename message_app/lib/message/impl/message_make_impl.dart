@@ -18,5 +18,4 @@ class MessageMakeImpl implements ModelMakeService {
   MessageModel makeModel(Map<String, dynamic> json) {
     return MessageModel(json);
   }
-
 }

@@ -17,10 +17,10 @@ class _AppHomePageState extends State<AppHomePage> {
   Widget _currentPage() {
     switch (_currentIndex) {
       case 0:
-        return MessageList.getSharedInstance();
+        return MessageListPage();
         break;
       case 1:
-        return ContactorList.getSharedInstance();
+        return ContactorList();
         break;
       default:
         return Text(_currentIndex.toString());

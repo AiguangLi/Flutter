@@ -8,23 +8,13 @@ import 'contactor_model.dart';
 import 'impl/contactor_service_impl.dart';
 
 class ContactorList extends StatefulWidget {
-  ContactorList._({Key key}) : super(key: key);
-
-  static ContactorList _instance;
-
-  static ContactorList getSharedInstance() {
-    if (_instance == null) {
-      _instance = ContactorList._();
-    }
-
-    return _instance;
-  }
+  ContactorList({Key key}) : super(key: key);
 
   @override
   _ContactorListState createState() => _ContactorListState();
 }
 
-//ToDo：状态要通过状态管理器管理，否则每次都会创建，导致每次都会刷新
+//ToDo：数据要通过状态管理器管理，否则每次都会创建，导致每次都会刷新
 class _ContactorListState extends State<ContactorList> {
   List<ContactorModel> contactorData;
   ListPager pager;

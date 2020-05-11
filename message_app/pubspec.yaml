@@ -27,6 +27,7 @@ dependencies:
   date_format: ^1.0.8
   cached_network_image: ^2.2.0+1
   flutter_easyrefresh: ^2.1.1 
+  provider: ^4.1.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
