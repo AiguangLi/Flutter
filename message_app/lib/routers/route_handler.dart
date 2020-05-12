@@ -1,13 +1,13 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:message_app/home/app.dart';
 import '../loading.dart';
-import '../app.dart';
 import '../search.dart';
 
 
 Handler appHomeHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return AppHomePage();
+  return AppHomeWrapPage();
 });
 
 Handler loadingHandler = Handler(

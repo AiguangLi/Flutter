@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:message_app/contact/contactor_list.dart';
-import 'package:message_app/message/message_list.dart';
+
+import 'package:message_app/home/view_model/app_home_store.dart';
+
 import 'package:plugins/components/app_bar_factory.dart';
 import 'package:plugins/plugins.dart';
+import 'package:provider/provider.dart';
+import 'package:message_app/message/message_list.dart';
+import 'package:message_app/contact/contactor_list.dart';
+
+class AppHomeWrapPage extends StatelessWidget {
+  const AppHomeWrapPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => AppHomeStore(context),
+      lazy: false,
+      child: AppHomePage(),
+    );
+  }
+}
 
 class AppHomePage extends StatefulWidget {
   AppHomePage({Key key}) : super(key: key);
@@ -12,35 +29,25 @@ class AppHomePage extends StatefulWidget {
 }
 
 class _AppHomePageState extends State<AppHomePage> {
-  int _currentIndex = 0;
-
-  Widget _currentPage() {
-    switch (_currentIndex) {
-      case 0:
-        return MessageListPage();
-        break;
-      case 1:
-        return ContactorList();
-        break;
-      default:
-        return Text(_currentIndex.toString());
-        break;
-    }
-  }
+  List<Widget> _homeWidgets = [
+    MessageListPage(),
+    ContactorList(),
+    Text('Hello Flutter!'),
+  ];
 
   @override
   Widget build(BuildContext context) {
+    //使用IndexedStack防止tab切换重新刷新
+    final store = Provider.of<AppHomeStore>(context);
     return Scaffold(
       appBar: AppBarFactory.buildCenterAppBar('Message App',
           withActions: _getAppBarWidgets()),
-      body: _currentPage(),
+      body: IndexedStack(index: store.pageIndex,children: _homeWidgets,),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
+        currentIndex: store.pageIndex,
         onTap: ((index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          store.changeIndex(index);
         }),
         items: [
           _getBottomNavItem('聊天', 'images/message_normal.png',
@@ -56,8 +63,9 @@ class _AppHomePageState extends State<AppHomePage> {
 
   BottomNavigationBarItem _getBottomNavItem(
       String title, String normalIcon, String pressedIcon, int index) {
+    final store = Provider.of<AppHomeStore>(context);
     return BottomNavigationBarItem(
-      icon: _currentIndex == index
+      icon: store.pageIndex == index
           ? Image.asset(
               pressedIcon,
               width: 32,
@@ -70,7 +78,7 @@ class _AppHomePageState extends State<AppHomePage> {
             ),
       title: Text(title,
           style: TextStyle(
-              color: _currentIndex == index
+              color: store.pageIndex == index
                   ? Color(0xFF1296db)
                   : Color(0xFF8a8a8a))),
     );

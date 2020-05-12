@@ -26,6 +26,7 @@ class _MessageList extends StatefulWidget {
 
 //ToDo：解决每次切换的刷新问题
 class _MessageListState extends State<_MessageList> {
+
   EasyRefreshController _controller = EasyRefreshController();
   String _indicatorText;
 

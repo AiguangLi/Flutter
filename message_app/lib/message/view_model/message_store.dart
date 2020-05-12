@@ -31,7 +31,6 @@ class MessageStore with ChangeNotifier {
         hasMoreData = true;
       }
       isLoaded = true;
-      
       notifyListeners();
     }
   }
