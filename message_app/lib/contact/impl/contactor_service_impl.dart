@@ -44,7 +44,6 @@ class ContactorServiceImpl implements ContactorService {
       map['mobile'] = DataMock.generateMobile();
       map['avatar'] =
           'http://upload.huifuwu.cn/UserCenter/Avatar/202005/1221625340534620.jpg';
-      // var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#';
       var firstChar = '#';
       if ((currentPage-1)*pageSize + index < 4) {
         firstChar = 'A';

@@ -7,14 +7,18 @@ class ListVO<T> {
   List<T> get listItems => _listItems;
 
   ListVO(ModelMakeService modelMake, Map<String, dynamic> response) {
-    pager = ListPager(response['pageNum'] ?? 1, response['pages'] ?? 0,
-        response['total'] ?? 0, response['pageSize'] ?? 20);
+    //防止后台传的数据类型不正确
+    int pageNum = (response['pageNum'] is int) ? response['pageNum'] : int.parse(response['pageNum']);
+    int pages = (response['pages'] is int) ? response['pages'] : int.parse(response['pages']);
+    int total = (response['total'] is int) ? response['total'] : int.parse(response['total']);
+    int pageSize = (response['pageSize'] is int) ? response['pageSize'] : int.parse(response['pageSize']);
+
+    pager = ListPager(pageNum, pages, total, pageSize);
 
     _listItems = List<T>();
-    if (response.containsKey('list') && response['list'] is List<Map<String, dynamic>>) {
-      List<Map<String, dynamic>> list =
-          response['list'] as List<Map<String, dynamic>>;
-      for (var item in list) {
+    //ToDo：处理异常数据类型
+    if (response.containsKey('list') && response['list'] is List) {
+      for (var item in response['list']) {
         _listItems.add(modelMake.makeModel(item));
       }
     }
