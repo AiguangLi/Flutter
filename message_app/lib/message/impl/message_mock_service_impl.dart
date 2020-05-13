@@ -4,14 +4,14 @@ import '../service/message_service.dart';
 import 'package:date_format/date_format.dart';
 import '../impl/message_make_impl.dart';
 
-class MessageApiServiceImpl implements MessageService {
-  MessageApiServiceImpl._();
+class MessageMockServiceImpl implements MessageService {
+  MessageMockServiceImpl._();
 
-  static MessageApiServiceImpl _instance;
+  static MessageMockServiceImpl _instance;
 
-  static MessageApiServiceImpl getSharedInstance() {
+  static MessageMockServiceImpl getSharedInstance() {
     if (_instance == null) {
-      _instance = MessageApiServiceImpl._();
+      _instance = MessageMockServiceImpl._();
     }
 
     return _instance;
