@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:message_app/message/impl/message_service_impl.dart';
+import 'package:message_app/message/service/message_service.dart';
 import 'package:message_app/message/message_model.dart';
 import 'package:message_app/models/list_pager.dart';
 import 'package:message_app/models/list_vo.dart';
+import '../../repository/global_service_repository.dart';
 
 class MessageStore with ChangeNotifier {
   final BuildContext context;
@@ -16,7 +17,7 @@ class MessageStore with ChangeNotifier {
   getListItems(int page, int pageSize, [Map<String, dynamic> params]) async {
     if (page == 1 || hasMoreData) {
       ListVO<MessageModel> newData =
-          await MessageServiceImpl.getSharedInstance()
+          await GlobalServiceRepository.getService<MessageService>()
               .listMessage(page, pageSize);
       if (page == 1) {
         messageData = newData?.listItems;

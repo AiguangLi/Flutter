@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:plugins/routers/route_manager.dart';
 import 'routers/routers.dart';
+import 'repository/global_service_repository.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  GlobalServiceRepository.resisterServices();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   final SystemUiOverlayStyle _style = SystemUiOverlayStyle(statusBarColor: Colors.transparent);

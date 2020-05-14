@@ -8,17 +8,17 @@ import 'package:date_format/date_format.dart';
 import '../impl/message_make_impl.dart';
 
 class MessageServiceImpl implements MessageService {
-  MessageServiceImpl._();
+  MessageServiceImpl();
 
-  static MessageServiceImpl _instance;
+  // static MessageServiceImpl _instance;
 
-  static MessageServiceImpl getSharedInstance() {
-    if (_instance == null) {
-      _instance = MessageServiceImpl._();
-    }
+  // static MessageServiceImpl getSharedInstance() {
+  //   if (_instance == null) {
+  //     _instance = MessageServiceImpl._();
+  //   }
 
-    return _instance;
-  }
+  //   return _instance;
+  // }
 
   @override
   Future<String> deleteMessage(String messageId) async {

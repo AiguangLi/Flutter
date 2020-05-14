@@ -137,6 +137,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.11"
+  get_it:
+    dependency: "direct main"
+    description:
+      name: get_it
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.2"
   http:
     dependency: transitive
     description:
