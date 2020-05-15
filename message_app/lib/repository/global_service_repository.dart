@@ -5,7 +5,9 @@ import '../message/impl/message_service_impl.dart';
 class GlobalServiceRepository {
   static void resisterServices() {
     GetIt getIt = GetIt.instance;
-    getIt.registerSingleton<MessageService>(MessageServiceImpl());
+    //getIt.registerSingleton<MessageService>(MessageServiceImpl());
+    getIt.registerLazySingleton<MessageService>(() => MessageServiceImpl());
+    //getIt.registerFactory<MessageService>(() => MessageServiceImpl());
   }
 
   static T getService<T>() {

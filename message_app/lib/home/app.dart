@@ -7,6 +7,7 @@ import 'package:plugins/plugins.dart';
 import 'package:provider/provider.dart';
 import '../message/pages/message_list.dart';
 import '../contact/pages/contactor_list.dart';
+import '../web_document/pages/word_preview.dart';
 
 class AppHomeWrapPage extends StatelessWidget {
   const AppHomeWrapPage({Key key}) : super(key: key);
@@ -32,7 +33,8 @@ class _AppHomePageState extends State<AppHomePage> {
   List<Widget> _homeWidgets = [
     MessageListPage(),
     ContactorList(),
-    Text('Hello Flutter!'),
+    WordPreview(),
+    // Text('Hello Flutter!'),
   ];
 
   @override
