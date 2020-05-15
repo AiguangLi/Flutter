@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:message_app/models/list_pager.dart';
-import 'package:message_app/models/list_vo.dart';
 
-import 'contactor_item.dart';
-import 'contactor_model.dart';
-import 'impl/contactor_service_impl.dart';
+import '../../models/list_pager.dart';
+import '../../models/list_vo.dart';
+import '../components/contactor_item.dart';
+import '../models/contactor_model.dart';
+import '../impl/contactor_service_impl.dart';
 
 class ContactorList extends StatefulWidget {
   ContactorList({Key key}) : super(key: key);

@@ -1,5 +1,5 @@
-import '../message_model.dart';
-import 'package:message_app/models/model_make_service.dart';
+import '../models/message_model.dart';
+import '../../models/model_make_service.dart';
 
 class MessageMakeImpl implements ModelMakeService {
   static MessageMakeImpl _instance;

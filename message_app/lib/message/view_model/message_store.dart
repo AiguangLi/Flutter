@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:message_app/message/service/message_service.dart';
-import 'package:message_app/message/message_model.dart';
-import 'package:message_app/models/list_pager.dart';
-import 'package:message_app/models/list_vo.dart';
+
+import '../service/message_service.dart';
+import '../models/message_model.dart';
+import '../../models/list_pager.dart';
+import '../../models/list_vo.dart';
 import '../../repository/global_service_repository.dart';
 
 class MessageStore with ChangeNotifier {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:message_app/message/message_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
+import '../models/message_model.dart';
 
 class MessageItem extends StatelessWidget {
   final MessageModel message;

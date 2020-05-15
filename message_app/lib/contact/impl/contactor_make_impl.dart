@@ -1,5 +1,5 @@
-import '../contactor_model.dart';
-import 'package:message_app/models/model_make_service.dart';
+import '../models/contactor_model.dart';
+import '../../models/model_make_service.dart';
 
 class ContactorMakeImpl implements ModelMakeService {
   static ContactorMakeImpl _instance;

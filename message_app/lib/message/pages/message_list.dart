@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:message_app/message/message_item.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-import 'package:message_app/message/view_model/message_store.dart';
 import 'package:provider/provider.dart';
+
+import '../view_model/message_store.dart';
+import '../components/message_item.dart';
 
 class MessageListPage extends StatelessWidget {
   const MessageListPage({Key key}) : super(key: key);

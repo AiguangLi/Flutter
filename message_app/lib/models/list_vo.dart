@@ -1,4 +1,4 @@
-import 'package:message_app/models/list_pager.dart';
+import '../models/list_pager.dart';
 import 'model_make_service.dart';
 
 class ListVO<T> {

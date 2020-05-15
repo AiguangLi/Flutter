@@ -1,5 +1,5 @@
-import '../contactor_model.dart';
-import 'package:message_app/models/list_vo.dart';
+import '../models/contactor_model.dart';
+import '../../models/list_vo.dart';
 
 abstract class ContactorService {
   Future<ListVO<ContactorModel>> listContactor(int currentPage, int pageSize);

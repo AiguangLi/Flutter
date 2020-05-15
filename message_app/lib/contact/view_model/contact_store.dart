@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../impl/contactor_service_impl.dart';
-import '../contactor_model.dart';
+import '../models/contactor_model.dart';
 import '../../models/list_pager.dart';
 import '../../models/list_vo.dart';
 

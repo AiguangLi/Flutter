@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'contactor_model.dart';
+import '../models/contactor_model.dart';
 
 class ContactorItem extends StatelessWidget {
   final ContactorModel contactor;

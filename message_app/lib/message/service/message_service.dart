@@ -1,5 +1,5 @@
-import 'package:message_app/message/message_model.dart';
-import 'package:message_app/models/list_vo.dart';
+import '../models/message_model.dart';
+import '../../models/list_vo.dart';
 
 abstract class MessageService {
   Future<ListVO<MessageModel>> listMessage(int currentPage, int pageSize);

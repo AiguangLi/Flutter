@@ -5,8 +5,8 @@ import 'package:message_app/home/view_model/app_home_store.dart';
 import 'package:plugins/components/app_bar_factory.dart';
 import 'package:plugins/plugins.dart';
 import 'package:provider/provider.dart';
-import 'package:message_app/message/message_list.dart';
-import 'package:message_app/contact/contactor_list.dart';
+import '../message/pages/message_list.dart';
+import '../contact/pages/contactor_list.dart';
 
 class AppHomeWrapPage extends StatelessWidget {
   const AppHomeWrapPage({Key key}) : super(key: key);
