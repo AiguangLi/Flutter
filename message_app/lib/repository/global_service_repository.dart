@@ -1,13 +1,18 @@
 import 'package:get_it/get_it.dart';
 import '../message/service/message_service.dart';
 import '../message/impl/message_service_impl.dart';
+import '../error_exception/service/error_service.dart';
+import '../error_exception/impl/error_service_impl.dart';
 
 class GlobalServiceRepository {
   static void resisterServices() {
     GetIt getIt = GetIt.instance;
-    //getIt.registerSingleton<MessageService>(MessageServiceImpl());
     getIt.registerLazySingleton<MessageService>(() => MessageServiceImpl());
-    //getIt.registerFactory<MessageService>(() => MessageServiceImpl());
+  }
+
+  static void resisterErrorService() {
+    GetIt getIt = GetIt.instance;
+    getIt.registerSingleton<ErrorService>(ErrorServiceImpl());
   }
 
   static T getService<T>() {

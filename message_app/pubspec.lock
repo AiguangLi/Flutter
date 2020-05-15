@@ -36,6 +36,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.0+1"
+  catcher:
+    dependency: "direct main"
+    description:
+      name: catcher
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.3.7"
   charcode:
     dependency: transitive
     description:
@@ -85,6 +92,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.8"
+  device_info:
+    dependency: transitive
+    description:
+      name: device_info
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.2+4"
   dio:
     dependency: "direct main"
     description:
@@ -125,6 +139,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
+  flutter_mailer:
+    dependency: transitive
+    description:
+      name: flutter_mailer
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -142,6 +163,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.11"
+  fluttertoast:
+    dependency: transitive
+    description:
+      name: fluttertoast
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.1"
   get_it:
     dependency: "direct main"
     description:
@@ -184,6 +212,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.1+1"
+  logging:
+    dependency: transitive
+    description:
+      name: logging
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.11.4"
+  mailer:
+    dependency: transitive
+    description:
+      name: mailer
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.4"
   matcher:
     dependency: transitive
     description:
@@ -198,6 +240,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.8"
+  mime:
+    dependency: transitive
+    description:
+      name: mime
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.9.6+3"
   nested:
     dependency: transitive
     description:
@@ -205,6 +254,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.0.4"
+  package_info:
+    dependency: transitive
+    description:
+      name: package_info
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.0+18"
   path:
     dependency: transitive
     description:
@@ -289,6 +345,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.24.0"
+  sentry:
+    dependency: transitive
+    description:
+      name: sentry
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -392,6 +455,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.1+5"
+  usage:
+    dependency: transitive
+    description:
+      name: usage
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.4.1"
   uuid:
     dependency: transitive
     description:
