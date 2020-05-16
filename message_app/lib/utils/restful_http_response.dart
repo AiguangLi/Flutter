@@ -11,7 +11,8 @@ class RestfulHttpResponse {
   bool get isSucess => _isSuccess;
   Map<String, dynamic> get data => _data;
 
-  RestfulHttpResponse.parseHttpReponse(int httpStatusCode, Map<String, dynamic> json) {
+  RestfulHttpResponse.parseHttpReponse (
+      int httpStatusCode, Map<String, dynamic> json) {
     _statusCode = httpStatusCode;
     //ToDo：将错误返回结果统一抛出异常，由顶层捕获
     if (httpStatusCode != 200 && httpStatusCode != 201) {
@@ -24,6 +25,8 @@ class RestfulHttpResponse {
         _message = json['statusText'] ?? 'Unknown Error!';
         _code = 0;
       }
+
+      throw RestfulError.fromResponse(this);
     } else {
       _isSuccess = true;
       _code = json['code'] ?? 0;
@@ -31,4 +34,22 @@ class RestfulHttpResponse {
       _data = json['data'];
     }
   }
+}
+
+class RestfulError extends Error implements UnsupportedError{
+  String _message;
+  int _httpCode;
+  int _code;
+  RestfulError.fromResponse(RestfulHttpResponse response) {
+    _message = response.message;
+    _httpCode = response.statusCode;
+    _code = response.code;
+  }
+
+  @override
+  String get message => _message;
+
+  int get httpCode => _httpCode;
+  int get code => _code;
+
 }

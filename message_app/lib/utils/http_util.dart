@@ -32,18 +32,13 @@ class HttpUtil {
   static Future<RestfulHttpResponse> get(String path,
       {Map<String, dynamic> queryParameters,
       Map<String, dynamic> headers}) async {
-    try {
-      Response<Map<String, dynamic>> response = await HttpUtil.createInstance()
-          .get(path,
-              queryParameters: queryParameters,
-              options: Options(headers: headers));
+    Response<Map<String, dynamic>> response = await HttpUtil.createInstance()
+        .get(path,
+            queryParameters: queryParameters,
+            options: Options(headers: headers));
 
-      return RestfulHttpResponse.parseHttpReponse(response.statusCode, response.data);
-    } catch (e) {
-      print(e);
-    }
-
-    return null;
+    return RestfulHttpResponse.parseHttpReponse(
+        response.statusCode, response.data);
   }
 
   ///Post请求测试
@@ -60,10 +55,11 @@ class HttpUtil {
               queryParameters: queryParameters,
               options: Options(headers: headers));
 
-      return RestfulHttpResponse.parseHttpReponse(response.statusCode, response.data);
+      return RestfulHttpResponse.parseHttpReponse(
+          response.statusCode, response.data);
     } catch (e) {
       print(e);
-    } 
+    }
 
     return null;
   }

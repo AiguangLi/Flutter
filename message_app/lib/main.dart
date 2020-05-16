@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:catcher/catcher_plugin.dart';
+import 'package:message_app/exception_handlers/global_exception_handler.dart';
 
 //import 'error_exception/service/error_service.dart';
 import 'repository/global_service_repository.dart';
@@ -13,8 +14,8 @@ void main() {
   GlobalServiceRepository.resisterServices();
   //GlobalServiceRepository.resisterErrorService();
 
-  CatcherOptions debugOptions = CatcherOptions(DialogReportMode(), [
-    ToastHandler()
+  CatcherOptions debugOptions = CatcherOptions(PageReportMode(), [
+    ConsoleHandler(enableDeviceParameters: true), GlobalExceptionHandler()
   ]);
 
   /// Release configuration. Same as above, but once user accepts dialog, user will be propmpted to send email with crash to support.
@@ -22,11 +23,13 @@ void main() {
     ToastHandler()
   ]);
 
+  var navigationKey = GlobalKey<NavigatorState>();
+
   // CatcherOptions profileOptions = CatcherOptions(
   //   PageReportMode(), [ConsoleHandler(), ToastHandler()],
   //   handlerTimeout: 10000,);
 
-  Catcher(MyApp(), debugConfig: debugOptions, releaseConfig: releaseOptions);
+  Catcher(MyApp(), debugConfig: debugOptions, releaseConfig: releaseOptions, navigatorKey: navigationKey);
 }
 
 class MyApp extends StatelessWidget {
