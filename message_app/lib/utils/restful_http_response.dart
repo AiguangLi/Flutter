@@ -14,7 +14,6 @@ class RestfulHttpResponse {
   RestfulHttpResponse.parseHttpReponse (
       int httpStatusCode, Map<String, dynamic> json) {
     _statusCode = httpStatusCode;
-    //ToDo：将错误返回结果统一抛出异常，由顶层捕获
     if (httpStatusCode != 200 && httpStatusCode != 201) {
       _isSuccess = false;
       if (json.containsKey('responseJSON')) {
