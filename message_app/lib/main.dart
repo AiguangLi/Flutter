@@ -12,24 +12,18 @@ import 'routers/routers.dart';
 
 void main() {
   GlobalServiceRepository.resisterServices();
-  //GlobalServiceRepository.resisterErrorService();
 
   CatcherOptions debugOptions = CatcherOptions(PageReportMode(), [
     ConsoleHandler(enableDeviceParameters: true), GlobalExceptionHandler()
   ]);
 
-  /// Release configuration. Same as above, but once user accepts dialog, user will be propmpted to send email with crash to support.
   CatcherOptions releaseOptions = CatcherOptions(DialogReportMode(), [
     ToastHandler()
   ]);
 
-  var navigationKey = GlobalKey<NavigatorState>();
+  //var navigatorKey = GlobalKey<NavigatorState>();
 
-  // CatcherOptions profileOptions = CatcherOptions(
-  //   PageReportMode(), [ConsoleHandler(), ToastHandler()],
-  //   handlerTimeout: 10000,);
-
-  Catcher(MyApp(), debugConfig: debugOptions, releaseConfig: releaseOptions, navigatorKey: navigationKey);
+  Catcher(MyApp(), debugConfig: debugOptions, releaseConfig: releaseOptions);
 }
 
 class MyApp extends StatelessWidget {
