@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   fluro: ^1.6.3
+  path_provider: ^1.6.8
+
 
 dev_dependencies:
   flutter_test:

@@ -25,6 +25,7 @@ class RestfulHttpResponse {
         _code = 0;
       }
 
+      //ToDo：记录接口请求Path
       throw RestfulError.fromResponse(this);
     } else {
       _isSuccess = true;
