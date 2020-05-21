@@ -1,5 +1,5 @@
 import '../models/list_pager.dart';
-import 'model_make_service.dart';
+import '../global_services/model_make_service.dart';
 
 class ListVO<T> {
   ListPager pager;

@@ -5,10 +5,11 @@ import '../models/message_model.dart';
 import '../../models/list_pager.dart';
 import '../../models/list_vo.dart';
 import '../../repository/global_service_repository.dart';
+import '../../global_services/user_login_service.dart';
 
-class MessageStore with ChangeNotifier {
-  final BuildContext context;
-  MessageStore(this.context);
+class MessageStore with ChangeNotifier, UserLoginService {
+  //final BuildContext context;
+  MessageStore();
 
   List<MessageModel> messageData;
   ListPager pager;
@@ -18,7 +19,8 @@ class MessageStore with ChangeNotifier {
   getListItems(int page, int pageSize, [Map<String, dynamic> params]) async {
     if (page == 1 || hasMoreData) {
       ListVO<MessageModel> newData =
-          await GlobalServiceRepository.getService<MessageService>().listMessage(page, pageSize);
+          await GlobalServiceRepository.getService<MessageService>()
+              .listMessage(page, pageSize);
       if (page == 1) {
         messageData = newData?.listItems;
       } else {
@@ -34,5 +36,15 @@ class MessageStore with ChangeNotifier {
       isLoaded = true;
       notifyListeners();
     }
+  }
+
+  @override
+  void loginHandler(String userId) {
+    debugPrint('UserLogin: $userId');
+  }
+
+  @override
+  void logoutHandler(String userId) {
+    debugPrint('UserLogout: $userId');
   }
 }

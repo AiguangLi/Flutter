@@ -5,13 +5,15 @@ import 'package:provider/provider.dart';
 import '../view_model/message_store.dart';
 import '../components/message_item.dart';
 
+import '../../repository/global_service_repository.dart';
+
 class MessageListPage extends StatelessWidget {
   const MessageListPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => MessageStore(context),
+      create: (_) => GlobalServiceRepository.getService<MessageStore>(),
       lazy: false,
       child: _MessageList(),
     );
@@ -25,7 +27,6 @@ class _MessageList extends StatefulWidget {
   _MessageListState createState() => _MessageListState();
 }
 
-//ToDo：解决每次切换的刷新问题
 class _MessageListState extends State<_MessageList> {
 
   EasyRefreshController _controller = EasyRefreshController();
