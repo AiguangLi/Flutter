@@ -26,6 +26,7 @@ class MessageMockServiceImpl implements MessageService {
   @override
   Future<MessageModel> getMessage(String messageId) async {
     return MessageModel({
+      'id': '$messageId',
       'nickname': 'NickName $messageId',
       'recentMessage': 'Hello, $messageId',
       'avatar':
@@ -40,6 +41,7 @@ class MessageMockServiceImpl implements MessageService {
       int currentPage, int pageSize) async {
     List<Map<String, dynamic>> list = List.generate(pageSize, (index) {
       Map<String, dynamic> map = Map();
+      map['id'] = '${(currentPage - 1) * pageSize + index + 1}';
       map['nickname'] = 'NickName ${(currentPage - 1) * pageSize + index}';
       map['recentMessage'] = 'Hello ${(currentPage - 1) * pageSize + index}';
       map['avatar'] =

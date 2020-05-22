@@ -11,10 +11,17 @@ class MessageStore with ChangeNotifier, UserLoginService {
   //final BuildContext context;
   MessageStore();
 
-  List<MessageModel> messageData;
-  ListPager pager;
-  bool isLoaded = false;
-  bool hasMoreData = true;
+  List<MessageModel> _messageData;
+  List<MessageModel> get messageData => _messageData;
+  ListPager _pager;
+  ListPager get pager => _pager;
+  bool _isLoaded = false;
+  bool get isLoaded => _isLoaded;
+  bool _hasMoreData = true;
+  bool get hasMoreData => _hasMoreData;
+
+  MessageModel _messageModel;
+  MessageModel get messageModel => _messageModel;
 
   getListItems(int page, int pageSize, [Map<String, dynamic> params]) async {
     if (page == 1 || hasMoreData) {
@@ -22,29 +29,36 @@ class MessageStore with ChangeNotifier, UserLoginService {
           await GlobalServiceRepository.getService<MessageService>()
               .listMessage(page, pageSize);
       if (page == 1) {
-        messageData = newData?.listItems;
+        _messageData = newData?.listItems;
       } else {
-        messageData.addAll(newData?.listItems);
+        _messageData.addAll(newData?.listItems);
       }
-      pager = newData?.pager;
+      _pager = newData?.pager;
 
       if (pager == null || pager.nextPage <= pager.currentPage) {
-        hasMoreData = false;
+        _hasMoreData = false;
       } else {
-        hasMoreData = true;
+        _hasMoreData = true;
       }
-      isLoaded = true;
+      _isLoaded = true;
       notifyListeners();
     }
   }
 
+  getMessageDetail(String messageId) async {
+    _messageModel = await GlobalServiceRepository.getService<MessageService>()
+        .getMessage(messageId);
+
+    notifyListeners();
+  }
+
   @override
   void loginHandler(String userId) {
-    debugPrint('UserLogin: $userId');
+    debugPrint('In Message Store loginHandler: $userId');
   }
 
   @override
   void logoutHandler(String userId) {
-    debugPrint('UserLogout: $userId');
+    debugPrint('In Message Store logoutHandler: $userId');
   }
 }

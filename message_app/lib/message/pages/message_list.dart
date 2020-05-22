@@ -12,9 +12,8 @@ class MessageListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => GlobalServiceRepository.getService<MessageStore>(),
-      lazy: false,
+    return ChangeNotifierProvider.value(
+      value: GlobalServiceRepository.getService<MessageStore>(),
       child: _MessageList(),
     );
   }

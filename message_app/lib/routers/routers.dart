@@ -11,7 +11,8 @@ class Routes implements IRouter {
   Map<String, Handler> _routeMap = {
     '/': loadingHandler,
     '/home': appHomeHandler,
-    '/search': searchHandler
+    '/search': searchHandler,
+    '/messageDetail': messageDetailHandler,
   };
 
   Routes._();

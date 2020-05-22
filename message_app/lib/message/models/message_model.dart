@@ -1,4 +1,7 @@
 class MessageModel {
+  String _id;
+  String get  id => _id;
+
   String _nickname;
   String get  nickname => _nickname;
 
@@ -12,6 +15,7 @@ class MessageModel {
   String get messageTime => _messageTime;
 
   MessageModel(Map<String, dynamic> json) {
+    _id = json['id'] ?? '';
     _nickname = json['nickname'] ?? '-';
     _recentMessage = json['recentMessage'] ?? '无消息';
     _avatarUrl = json["avatar"] ?? '';

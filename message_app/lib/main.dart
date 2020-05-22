@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:catcher/catcher_plugin.dart';
 import 'package:message_app/exception_handlers/global_exception_handler.dart';
+import 'package:message_app/global_stores/user_login_store.dart';
+import 'package:provider/provider.dart';
 
 //import 'error_exception/service/error_service.dart';
 import 'repository/global_service_repository.dart';
@@ -13,17 +15,24 @@ import 'routers/routers.dart';
 void main() {
   GlobalServiceRepository.resisterServices();
 
-  CatcherOptions debugOptions = CatcherOptions(PageReportMode(), [
-    ConsoleHandler(enableDeviceParameters: true), GlobalExceptionHandler()
-  ]);
+  CatcherOptions debugOptions = CatcherOptions(PageReportMode(),
+      [ConsoleHandler(enableDeviceParameters: true), GlobalExceptionHandler()]);
 
-  CatcherOptions releaseOptions = CatcherOptions(DialogReportMode(), [
-    ToastHandler()
-  ]);
+  CatcherOptions releaseOptions =
+      CatcherOptions(DialogReportMode(), [ToastHandler()]);
 
   //var navigatorKey = GlobalKey<NavigatorState>();
 
-  Catcher(MyApp(), debugConfig: debugOptions, releaseConfig: releaseOptions);
+  Widget myApp = MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => UserLoginStore(),
+        lazy: false,
+      ),
+    ],
+    child: MyApp(),
+  );
+  Catcher(myApp, debugConfig: debugOptions, releaseConfig: releaseOptions);
 }
 
 class MyApp extends StatelessWidget {

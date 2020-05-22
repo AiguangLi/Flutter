@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:plugins/plugins.dart';
 
 import '../models/message_model.dart';
 
@@ -9,7 +10,11 @@ class MessageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        RouteManager.router.navigateTo(context, '/messageDetail?id=${message.id}');
+      },
+      child:Container(
       padding: EdgeInsets.all(10),
       //列表的分隔线
       decoration: BoxDecoration(
@@ -58,6 +63,6 @@ class MessageItem extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),);
   }
 }

@@ -29,6 +29,7 @@ class MessageServiceImpl implements MessageService {
   @override
   Future<MessageModel> getMessage(String messageId) async {
     return MessageModel({
+      'id': '1',
       'nickname': 'NickName $messageId',
       'recentMessage': 'Hello, $messageId',
       'avatar':
