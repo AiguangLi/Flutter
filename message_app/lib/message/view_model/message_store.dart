@@ -20,8 +20,8 @@ class MessageStore with ChangeNotifier, UserLoginService {
   bool _hasMoreData = true;
   bool get hasMoreData => _hasMoreData;
 
-  MessageModel _messageModel;
-  MessageModel get messageModel => _messageModel;
+  MessageModel _message;
+  MessageModel get messageModel => _message;
 
   getListItems(int page, int pageSize, [Map<String, dynamic> params]) async {
     if (page == 1 || hasMoreData) {
@@ -46,7 +46,7 @@ class MessageStore with ChangeNotifier, UserLoginService {
   }
 
   getMessageDetail(String messageId) async {
-    _messageModel = await GlobalServiceRepository.getService<MessageService>()
+    _message = await GlobalServiceRepository.getService<MessageService>()
         .getMessage(messageId);
 
     notifyListeners();

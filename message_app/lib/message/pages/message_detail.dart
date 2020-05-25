@@ -56,7 +56,7 @@ class _MessageDetailState extends State<_MessageDetail> {
     return Scaffold(
        appBar: AppBarFactory.buildCenterAppBar('Message Detail'),
        body: Center(
-         child: Text(store.messageModel != null ? store.messageModel.recentMessage : '加载中'),
+         child: Text(store.message != null ? store.message.recentMessage : '加载中'),
        ),
     );
   }

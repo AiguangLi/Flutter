@@ -3,6 +3,8 @@
 *.aar
 *.ap_
 *.aab
+*.lock
+
 
 # Files for the ART/Dalvik VM
 *.dex
