@@ -63,12 +63,13 @@ class _MessageDetailState extends State<_MessageDetail> {
         child: Column(
           children: <Widget>[
             Text(store.message != null ? store.message.recentMessage : '加载中'),
-            _imageFile != null ?
-            SizedBox(
-              child: Image.file(_imageFile, fit: BoxFit.fill),
-              width: 200,
-              height: 200,
-            ) : Text('选择图片'),
+            _imageFile != null
+                ? SizedBox(
+                    child: Image.file(_imageFile, fit: BoxFit.fill),
+                    width: 200,
+                    height: 200,
+                  )
+                : Text('选择图片'),
           ],
         ),
       ),
@@ -83,42 +84,39 @@ class _MessageDetailState extends State<_MessageDetail> {
   Future<void> displayPickImageDialog(
       BuildContext context, double width, double height, int quality) async {
     return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('选择照片'),
-            content: Text('从相册选择照片或拍照'),
-            actions: <Widget>[
-              FlatButton(
-                child: const Text('取消'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              FlatButton(
-                child: const Text('从相册选取'),
-                onPressed: () async {
-                  _imageFile = await ImagePickerUtil.pickImage(
-                      ImageSource.gallery, width, height, quality);
-                      setState(() {
-                        
-                      });
-                  Navigator.of(context).pop();
-                },
-              ),
-              FlatButton(
-                child: const Text('拍照'),
-                onPressed: () async {
-                  _imageFile = await ImagePickerUtil.pickImage(
-                      ImageSource.camera, width, height, quality);
-                      setState(() {
-                        
-                      });
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        });
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('选择照片'),
+          content: Text('从相册选择照片或拍照'),
+          actions: <Widget>[
+            FlatButton(
+              child: const Text('取消'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: const Text('从相册选取'),
+              onPressed: () async {
+                _imageFile = await ImagePickerUtil.pickImage(
+                    ImageSource.gallery, width, height, quality);
+                setState(() {});
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: const Text('拍照'),
+              onPressed: () async {
+                _imageFile = await ImagePickerUtil.pickImage(
+                    ImageSource.camera, width, height, quality);
+                setState(() {});
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
