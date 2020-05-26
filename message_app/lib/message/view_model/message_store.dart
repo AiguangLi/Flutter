@@ -21,7 +21,7 @@ class MessageStore with ChangeNotifier, UserLoginService {
   bool get hasMoreData => _hasMoreData;
 
   MessageModel _message;
-  MessageModel get messageModel => _message;
+  MessageModel get message => _message;
 
   getListItems(int page, int pageSize, [Map<String, dynamic> params]) async {
     if (page == 1 || hasMoreData) {
