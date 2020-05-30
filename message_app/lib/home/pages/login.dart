@@ -128,7 +128,7 @@ class __LoginViewState extends State<_LoginView> {
             ),
             Container(
               height: 44,
-              width: GlobalConstant.getScreenWize(context).width,
+              width: GlobalConstant.screenSize(context).width,
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,

@@ -43,7 +43,10 @@ class _AppHomePageState extends State<AppHomePage> {
     return Scaffold(
       appBar: AppBarFactory.buildCenterAppBar('Message App',
           withActions: _getAppBarWidgets()),
-      body: IndexedStack(index: store.pageIndex,children: _homeWidgets,),
+      body: IndexedStack(
+        index: store.pageIndex,
+        children: _homeWidgets,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: store.pageIndex,
@@ -77,11 +80,14 @@ class _AppHomePageState extends State<AppHomePage> {
               width: 32,
               height: 28,
             ),
-      title: Text(title,
-          style: TextStyle(
-              color: store.pageIndex == index
-                  ? GlobalConstant.PRIMARY_COLOR
-                  : Color(0xFF8a8a8a))),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: store.pageIndex == index
+              ? GlobalConstant.PRIMARY_COLOR
+              : GlobalConstant.DESELECTED_COLOR,
+        ),
+      ),
     );
   }
 

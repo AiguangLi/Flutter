@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GlobalConstant {
-  static Size getScreenWize(BuildContext context) {
+  static Size screenSize(BuildContext context) {
     return MediaQuery.of(context).size;
   }
 
