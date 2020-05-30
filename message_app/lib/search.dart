@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:message_app/global_constant.dart';
 import 'package:plugins/plugins.dart';
 
 class SearchPage extends StatefulWidget {
@@ -63,7 +64,7 @@ class _SearchPageState extends State<SearchPage> {
               onPressed: () {
                 RouteManager.router.pop(context);
               },
-              backgroundColor: Color(0xFF12a6Eb),
+              backgroundColor: GlobalConstant.PRIMARY_COLOR,
             ),
             width: 44,
             height: 44,
@@ -83,7 +84,7 @@ class _SearchPageState extends State<SearchPage> {
             child: TouchButton(
                 child: Icon(Icons.mic, color: Colors.white),
                 onPressed: () {},
-                backgroundColor: Color(0xFF12a6Eb)),
+                backgroundColor: GlobalConstant.PRIMARY_COLOR),
             width: 44,
             height: 44,
           )

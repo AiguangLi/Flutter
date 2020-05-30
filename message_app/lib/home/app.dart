@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
-import 'package:message_app/home/view_model/app_home_store.dart';
-
 import 'package:plugins/components/app_bar_factory.dart';
 import 'package:plugins/plugins.dart';
 import 'package:provider/provider.dart';
 import '../message/pages/message_list.dart';
 import '../contact/pages/contactor_list.dart';
 import '../web_document/pages/word_preview.dart';
+import '../global_constant.dart';
+import '../home/view_model/app_home_store.dart';
 
 class AppHomeWrapPage extends StatelessWidget {
   const AppHomeWrapPage({Key key}) : super(key: key);
@@ -81,7 +80,7 @@ class _AppHomePageState extends State<AppHomePage> {
       title: Text(title,
           style: TextStyle(
               color: store.pageIndex == index
-                  ? Color(0xFF1296db)
+                  ? GlobalConstant.PRIMARY_COLOR
                   : Color(0xFF8a8a8a))),
     );
   }

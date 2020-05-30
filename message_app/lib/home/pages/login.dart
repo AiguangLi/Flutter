@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:keyboard_actions/keyboard_actions_config.dart';
-import 'package:message_app/home/view_model/login_store.dart';
 import 'package:plugins/components/app_bar_factory.dart';
 import 'package:plugins/plugins.dart';
 import 'package:provider/provider.dart';
 import 'package:keyboard_actions/keyboard_action.dart';
+
+import '../../global_constant.dart';
+import '../../home/view_model/login_store.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -124,15 +126,24 @@ class __LoginViewState extends State<_LoginView> {
                 hintText: "输入密码",
               ),
             ),
-            FlatButton(
+            Container(
+              height: 44,
+              width: GlobalConstant.getScreenWize(context).width,
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: FlatButton(
               onPressed: () {
                 store.login(usernameController.text, passwordController.text);
                 if (store.isLogined) {
                   RouteManager.router.navigateTo(context, '/home', replace: true);
                 }
               },
-              child: Text('登录'),
-            ),
+              child: Text('登录', style: TextStyle(color: Colors.white, fontSize: 16),),
+            ),),
+            
           ],
         ),
       ),

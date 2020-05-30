@@ -1,9 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:catcher/catcher_plugin.dart';
 import 'package:message_app/exception_handlers/global_exception_handler.dart';
+import 'global_constant.dart';
 import 'package:message_app/global_stores/user_login_store.dart';
 import 'package:provider/provider.dart';
 
@@ -57,8 +56,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primaryColor: Color(0xFF1296db),
-        scaffoldBackgroundColor: Color(0xFFF1F1F1),
+        primaryColor: GlobalConstant.PRIMARY_COLOR,
+        scaffoldBackgroundColor: GlobalConstant.PAGE_BACKGROUND_COLOR,
         cardColor: Color(0xEE1296db),
       ),
       onGenerateRoute: RouteManager.router.generator,
