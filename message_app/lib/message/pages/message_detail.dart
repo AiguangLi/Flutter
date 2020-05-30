@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:plugins/components/app_bar_factory.dart';
+import 'package:plugins/plugins.dart';
 import 'package:provider/provider.dart';
-import 'package:image_picker/image_picker.dart';
+//import 'package:image_picker/image_picker.dart';
+import 'package:plugins/utils/photo_image_picker.dart';
 import 'dart:io';
 
 import '../view_model/message_store.dart';
@@ -30,7 +32,7 @@ class _MessageDetail extends StatefulWidget {
 }
 
 class _MessageDetailState extends State<_MessageDetail> {
-  File _imageFile;
+  Asset _imageFile;
 
   @override
   void initState() {
@@ -65,7 +67,7 @@ class _MessageDetailState extends State<_MessageDetail> {
             Text(store.message != null ? store.message.recentMessage : '加载中'),
             _imageFile != null
                 ? SizedBox(
-                    child: Image.file(_imageFile, fit: BoxFit.fill),
+                    child: AssetThumb(asset:_imageFile, width: 200, height: 200),
                     width: 200,
                     height: 200,
                   )
@@ -99,8 +101,9 @@ class _MessageDetailState extends State<_MessageDetail> {
             FlatButton(
               child: const Text('从相册选取'),
               onPressed: () async {
-                _imageFile = await ImagePickerUtil.pickImage(
-                    ImageSource.gallery, width, height, quality);
+                _imageFile = await PhotoImagePicker.pickOriginImage(ImageSource.photo, 50);
+                // _imageFile = await ImagePickerUtil.pickImage(
+                //     ImageSource.gallery, width, height, quality);
                 setState(() {});
                 Navigator.of(context).pop();
               },
@@ -108,8 +111,9 @@ class _MessageDetailState extends State<_MessageDetail> {
             FlatButton(
               child: const Text('拍照'),
               onPressed: () async {
-                _imageFile = await ImagePickerUtil.pickImage(
-                    ImageSource.camera, width, height, quality);
+                _imageFile = await PhotoImagePicker.pickOriginImage(ImageSource.camera, 50);
+                // _imageFile = await ImagePickerUtil.pickImage(
+                //     ImageSource.camera, width, height, quality);
                 setState(() {});
                 Navigator.of(context).pop();
               },

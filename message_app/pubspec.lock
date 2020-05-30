@@ -233,6 +233,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.1+1"
+  keyboard_actions:
+    dependency: "direct main"
+    description:
+      name: keyboard_actions
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.2.1+1"
   logging:
     dependency: transitive
     description:
@@ -268,6 +275,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.9.6+3"
+  multi_image_picker:
+    dependency: transitive
+    description:
+      name: multi_image_picker
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.6.7"
   nested:
     dependency: transitive
     description:

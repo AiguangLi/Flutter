@@ -13,6 +13,7 @@ class Routes implements IRouter {
     '/home': appHomeHandler,
     '/search': searchHandler,
     '/messageDetail': messageDetailHandler,
+    '/login': loginHandler,
   };
 
   Routes._();

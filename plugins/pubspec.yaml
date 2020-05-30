@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   fluro: ^1.6.3
   path_provider: ^1.6.8
+  multi_image_picker: ^4.6.7
 
 
 dev_dependencies:

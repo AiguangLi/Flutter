@@ -4,6 +4,7 @@ import 'package:message_app/home/app.dart';
 import '../loading.dart';
 import '../search.dart';
 import '../message/pages/message_detail.dart';
+import '../home/pages/login.dart';
 
 Handler appHomeHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -24,4 +25,9 @@ Handler messageDetailHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   String messageId = params['id']?.first;
   return MessageDetailPage(messageId: messageId);
+});
+
+Handler loginHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return LoginPage();
 });

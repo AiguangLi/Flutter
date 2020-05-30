@@ -15,7 +15,7 @@ class AppHomeWrapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => AppHomeStore(context),
+      create: (_) => AppHomeStore(),
       lazy: false,
       child: AppHomePage(),
     );

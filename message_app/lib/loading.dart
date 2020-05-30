@@ -12,10 +12,10 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     super.initState();
-    //延迟3秒进入主页（用于引导）
-    Future.delayed(Duration(seconds: 3), () {
+    //延迟2秒进入主页（用于引导）
+    Future.delayed(Duration(seconds: 2), () {
       //设置replace为true隐藏返回按钮
-      RouteManager.router.navigateTo(context, '/home', replace: true);
+      RouteManager.router.navigateTo(context, '/login', replace: true);
     });
   }
 
